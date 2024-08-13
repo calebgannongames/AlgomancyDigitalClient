@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://ccbqow3fvbmu1"]
+
+[ext_resource type="Shader" path="res://trigger_curve.gdshader" id="1_3do8j"]
+[ext_resource type="Script" path="res://trigger_curve.gd" id="1_pw51a"]
+
+[sub_resource type="Gradient" id="Gradient_dot75"]
+colors = PackedColorArray(1, 0.631373, 0, 0.831373, 1, 0.631373, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_juttx"]
+noise_type = 3
+frequency = 0.0061
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d2w1k"]
+seamless = true
+color_ramp = SubResource("Gradient_dot75")
+noise = SubResource("FastNoiseLite_juttx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dfrx"]
+shader = ExtResource("1_3do8j")
+shader_parameter/noise = SubResource("NoiseTexture2D_d2w1k")
+
+[sub_resource type="Curve" id="Curve_gyd3b"]
+max_value = 10.0
+_data = [Vector2(0, 2.83926), 0.0, 0.0, 0, 0, Vector2(1, 0.495744), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_mojnk"]
+bake_interval = 20.0
+_data = {
+"points": PackedVector2Array(46.825, 19.4733, -46.825, -19.4733, 2.08165e-12, 1, 53.0684, -48.1629, -53.0684, 48.1629, -100, 30)
+}
+point_count = 2
+
+[node name="Trigger_Curve" type="Line2D"]
+texture_filter = 6
+texture_repeat = 2
+material = SubResource("ShaderMaterial_6dfrx")
+position = Vector2(2.08165e-12, 2.08165e-12)
+points = PackedVector2Array(3, 5, 132.556, 66.6154, 201, 28, 158, 93)
+width_curve = SubResource("Curve_gyd3b")
+texture_mode = 2
+joint_mode = 2
+script = ExtResource("1_pw51a")
+
+[node name="Curve" type="Path2D" parent="."]
+visible = false
+position = Vector2(0, -1)
+curve = SubResource("Curve2D_mojnk")

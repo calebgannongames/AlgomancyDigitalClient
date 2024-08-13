@@ -1,0 +1,18 @@
+
+{
+  "Player": {
+	"Life": 30,
+	"Resources": [
+		{"Name": "Prismite", "Status": "Active", "Usage": "Available"},
+		{"Name": "Prismite", "Status": "Active", "Usage": "Available"},
+	]
+  },
+  "Opponent": {
+	"Life": 30,
+   	"Resources": [
+		{"Name": "Fire Resource", "Status": "Dormant", "Usage": "Available"},
+		{"Name": "Water Resource", "Status": "Dormant", "Usage": "Expended"},
+		
+	]
+}
+}

@@ -1,0 +1,784 @@
+[gd_scene load_steps=74 format=3 uid="uid://2tynsasr8vmc"]
+
+[ext_resource type="Texture2D" uid="uid://dxo2mpdkqkeqf" path="res://Images/Wood_Banner.png" id="1_88462"]
+[ext_resource type="Script" path="res://Scripts/Voting_System.gd" id="1_et6e0"]
+[ext_resource type="Texture2D" uid="uid://drh0v26wxw3kg" path="res://Images/Fire_Banner.png" id="2_pe21v"]
+[ext_resource type="Texture2D" uid="uid://pf1uv0gjrvuc" path="res://Images/Metal_Banner.png" id="3_3agri"]
+[ext_resource type="Texture2D" uid="uid://cr8fm6ypuhrmq" path="res://Images/Water_Banner.png" id="4_w5mo1"]
+[ext_resource type="Texture2D" uid="uid://mtykagb0sqm3" path="res://Images/Earth_Banner.png" id="5_b1mmn"]
+[ext_resource type="Texture2D" uid="uid://rink03jyf2ax" path="res://Images/Void_Banner.png" id="6_akuga"]
+[ext_resource type="Texture2D" uid="uid://b46cu8wrvloo6" path="res://Images/White_Arrow.png" id="9_dnasb"]
+[ext_resource type="FontFile" uid="uid://bkj27redhqxmj" path="res://Fonts/ethnocentric_rg.otf" id="9_u8yov"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tpix8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t7aq4"]
+texture = ExtResource("9_dnasb")
+modulate_color = Color(0.601375, 0.85, 0.5185, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u8v37"]
+texture = ExtResource("9_dnasb")
+modulate_color = Color(0.45098, 0.74902, 0.411765, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kt5ff"]
+texture = ExtResource("9_dnasb")
+modulate_color = Color(0.389125, 0.55, 0.3355, 1)
+
+[sub_resource type="Theme" id="Theme_c0oip"]
+default_font = ExtResource("9_u8yov")
+default_font_size = 50
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0.498039, 0.6, 0.654902, 1)
+Button/constants/h_separation = 0
+Button/font_sizes/font_size = 55
+Button/fonts/font = ExtResource("9_u8yov")
+Button/styles/focus = SubResource("StyleBoxEmpty_tpix8")
+Button/styles/hover = SubResource("StyleBoxTexture_t7aq4")
+Button/styles/normal = SubResource("StyleBoxTexture_u8v37")
+Button/styles/pressed = SubResource("StyleBoxTexture_kt5ff")
+
+[sub_resource type="Theme" id="Theme_4t2se"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("9_u8yov")
+
+[sub_resource type="Theme" id="Theme_wye18"]
+Label/colors/font_color = Color(0.521569, 0.741176, 0.447059, 1)
+Label/font_sizes/font_size = 40
+
+[sub_resource type="Theme" id="Theme_m3pwj"]
+Label/colors/font_color = Color(0.45098, 0.74902, 0.411765, 1)
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("9_u8yov")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gf3xb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g58bc"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2w4qp"]
+texture = SubResource("CompressedTexture2D_g58bc")
+modulate_color = Color(1, 0.333, 0.31, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h0gje"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ji78i"]
+texture = SubResource("CompressedTexture2D_h0gje")
+modulate_color = Color(0.921569, 0.305882, 0.282353, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3q72j"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e2l5x"]
+texture = SubResource("CompressedTexture2D_3q72j")
+modulate_color = Color(0.82, 0.27306, 0.2542, 1)
+
+[sub_resource type="Theme" id="Theme_dl2px"]
+default_font = ExtResource("9_u8yov")
+default_font_size = 50
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0.498039, 0.6, 0.654902, 1)
+Button/constants/h_separation = 0
+Button/font_sizes/font_size = 55
+Button/fonts/font = ExtResource("9_u8yov")
+Button/styles/focus = SubResource("StyleBoxEmpty_gf3xb")
+Button/styles/hover = SubResource("StyleBoxTexture_2w4qp")
+Button/styles/normal = SubResource("StyleBoxTexture_ji78i")
+Button/styles/pressed = SubResource("StyleBoxTexture_e2l5x")
+
+[sub_resource type="Theme" id="Theme_3nabi"]
+Label/colors/font_color = Color(0.921569, 0.305882, 0.282353, 1)
+Label/font_sizes/font_size = 40
+
+[sub_resource type="Theme" id="Theme_lwa5q"]
+Label/colors/font_color = Color(0.921569, 0.305882, 0.282353, 1)
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("9_u8yov")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8yu5i"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nmcp5"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bfbuf"]
+texture = SubResource("CompressedTexture2D_nmcp5")
+modulate_color = Color(0.8633, 0.87843, 0.89, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w55ib"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vsshc"]
+texture = SubResource("CompressedTexture2D_w55ib")
+modulate_color = Color(0.764706, 0.780392, 0.792157, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6ieff"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xjmkk"]
+texture = SubResource("CompressedTexture2D_6ieff")
+modulate_color = Color(0.6693, 0.68103, 0.69, 1)
+
+[sub_resource type="Theme" id="Theme_wxinb"]
+default_font = ExtResource("9_u8yov")
+default_font_size = 50
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0.498039, 0.6, 0.654902, 1)
+Button/constants/h_separation = 0
+Button/font_sizes/font_size = 55
+Button/fonts/font = ExtResource("9_u8yov")
+Button/styles/focus = SubResource("StyleBoxEmpty_8yu5i")
+Button/styles/hover = SubResource("StyleBoxTexture_bfbuf")
+Button/styles/normal = SubResource("StyleBoxTexture_vsshc")
+Button/styles/pressed = SubResource("StyleBoxTexture_xjmkk")
+
+[sub_resource type="Theme" id="Theme_aujmk"]
+Label/colors/font_color = Color(0.764706, 0.780392, 0.792157, 1)
+Label/font_sizes/font_size = 40
+
+[sub_resource type="Theme" id="Theme_go8r8"]
+Label/colors/font_color = Color(0.764706, 0.780392, 0.792157, 1)
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("9_u8yov")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vae0m"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dwhs7"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wdll4"]
+texture = SubResource("CompressedTexture2D_dwhs7")
+modulate_color = Color(0.455, 0.811417, 0.91, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kqb41"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mn0og"]
+texture = SubResource("CompressedTexture2D_kqb41")
+modulate_color = Color(0.403922, 0.717647, 0.807843, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_68a52"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8kre2"]
+texture = SubResource("CompressedTexture2D_68a52")
+modulate_color = Color(0.355, 0.633083, 0.71, 1)
+
+[sub_resource type="Theme" id="Theme_4gcpt"]
+default_font = ExtResource("9_u8yov")
+default_font_size = 50
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0.498039, 0.6, 0.654902, 1)
+Button/constants/h_separation = 0
+Button/font_sizes/font_size = 55
+Button/fonts/font = ExtResource("9_u8yov")
+Button/styles/focus = SubResource("StyleBoxEmpty_vae0m")
+Button/styles/hover = SubResource("StyleBoxTexture_wdll4")
+Button/styles/normal = SubResource("StyleBoxTexture_mn0og")
+Button/styles/pressed = SubResource("StyleBoxTexture_8kre2")
+
+[sub_resource type="Theme" id="Theme_go6e4"]
+Label/colors/font_color = Color(0.403922, 0.717647, 0.807843, 1)
+Label/font_sizes/font_size = 40
+
+[sub_resource type="Theme" id="Theme_pgay4"]
+Label/colors/font_color = Color(0.403922, 0.717647, 0.807843, 1)
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("9_u8yov")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gb486"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1nvhv"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nii1h"]
+texture = SubResource("CompressedTexture2D_1nvhv")
+modulate_color = Color(0.94, 0.720667, 0.4136, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vwijp"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m2koa"]
+texture = SubResource("CompressedTexture2D_vwijp")
+modulate_color = Color(0.839216, 0.647059, 0.372549, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_axwk5"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6scan"]
+texture = SubResource("CompressedTexture2D_axwk5")
+modulate_color = Color(0.74, 0.567333, 0.3256, 1)
+
+[sub_resource type="Theme" id="Theme_3n20c"]
+default_font = ExtResource("9_u8yov")
+default_font_size = 50
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0.498039, 0.6, 0.654902, 1)
+Button/constants/h_separation = 0
+Button/font_sizes/font_size = 55
+Button/fonts/font = ExtResource("9_u8yov")
+Button/styles/focus = SubResource("StyleBoxEmpty_gb486")
+Button/styles/hover = SubResource("StyleBoxTexture_nii1h")
+Button/styles/normal = SubResource("StyleBoxTexture_m2koa")
+Button/styles/pressed = SubResource("StyleBoxTexture_6scan")
+
+[sub_resource type="Theme" id="Theme_tkstj"]
+Label/colors/font_color = Color(0.839216, 0.647059, 0.372549, 1)
+Label/font_sizes/font_size = 40
+
+[sub_resource type="Theme" id="Theme_vxdml"]
+Label/colors/font_color = Color(0.839216, 0.647059, 0.372549, 1)
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("9_u8yov")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ldiy0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ebnao"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5wjp"]
+texture = SubResource("CompressedTexture2D_ebnao")
+modulate_color = Color(0.832516, 0.4465, 0.95, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8lnqt"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_04b3j"]
+texture = SubResource("CompressedTexture2D_8lnqt")
+modulate_color = Color(0.756863, 0.407843, 0.858824, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8jvch"]
+load_path = "res://.godot/imported/White_Arrow.png-97f72fb721aa987ec69a1a6c46112af7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0swd3"]
+texture = SubResource("CompressedTexture2D_8jvch")
+modulate_color = Color(0.666013, 0.3572, 0.76, 1)
+
+[sub_resource type="Theme" id="Theme_w0tlw"]
+default_font = ExtResource("9_u8yov")
+default_font_size = 50
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0.498039, 0.6, 0.654902, 1)
+Button/constants/h_separation = 0
+Button/font_sizes/font_size = 55
+Button/fonts/font = ExtResource("9_u8yov")
+Button/styles/focus = SubResource("StyleBoxEmpty_ldiy0")
+Button/styles/hover = SubResource("StyleBoxTexture_w5wjp")
+Button/styles/normal = SubResource("StyleBoxTexture_04b3j")
+Button/styles/pressed = SubResource("StyleBoxTexture_0swd3")
+
+[sub_resource type="Theme" id="Theme_wgx0o"]
+Label/colors/font_color = Color(0.756863, 0.407843, 0.858824, 1)
+Label/font_sizes/font_size = 40
+
+[sub_resource type="Theme" id="Theme_2kfs6"]
+Label/colors/font_color = Color(0.756863, 0.407843, 0.858824, 1)
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("9_u8yov")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g101m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcoar"]
+bg_color = Color(0.505882, 0.505882, 0.505882, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sireu"]
+bg_color = Color(0.427451, 0.427451, 0.427451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akvxx"]
+bg_color = Color(0.392157, 0.392157, 0.392157, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_tjort"]
+Button/font_sizes/font_size = 100
+Button/fonts/font = ExtResource("9_u8yov")
+Button/styles/focus = SubResource("StyleBoxEmpty_g101m")
+Button/styles/hover = SubResource("StyleBoxFlat_rcoar")
+Button/styles/normal = SubResource("StyleBoxFlat_sireu")
+Button/styles/pressed = SubResource("StyleBoxFlat_akvxx")
+
+[sub_resource type="Theme" id="Theme_7gem7"]
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("9_u8yov")
+
+[node name="Element_Voting" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_et6e0")
+
+[node name="Wood" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 321.0
+offset_bottom = 1080.0
+texture = ExtResource("1_88462")
+
+[node name="Wood_Upvote" type="Button" parent="Wood"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 83.0
+offset_right = 200.0
+offset_bottom = 150.0
+theme = SubResource("Theme_c0oip")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+clip_text = true
+script = ExtResource("1_et6e0")
+
+[node name="+icon" type="Label" parent="Wood/Wood_Upvote"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 93.0
+theme = SubResource("Theme_4t2se")
+text = "+"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Wood/Wood_Upvote"]
+layout_mode = 0
+offset_left = -70.0
+offset_top = 65.0
+offset_right = 145.0
+offset_bottom = 126.0
+theme = SubResource("Theme_wye18")
+text = "wood"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wood_Downvote" type="Button" parent="Wood"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 211.0
+offset_right = 200.0
+offset_bottom = 278.0
+rotation = 3.14159
+pivot_offset = Vector2(40, 33.5)
+theme = SubResource("Theme_c0oip")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+clip_text = true
+script = ExtResource("1_et6e0")
+
+[node name="-icon" type="Label" parent="Wood/Wood_Downvote"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 93.0
+theme = SubResource("Theme_4t2se")
+text = "-"
+horizontal_alignment = 1
+
+[node name="VoteValue" type="Label" parent="Wood"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 53.0
+offset_right = 263.0
+offset_bottom = 114.0
+theme = SubResource("Theme_m3pwj")
+
+[node name="Fire" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_right = 641.0
+offset_bottom = 1080.0
+texture = ExtResource("2_pe21v")
+
+[node name="Fire_Upvote" type="Button" parent="Fire"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 83.0
+offset_right = 200.0
+offset_bottom = 150.0
+theme = SubResource("Theme_dl2px")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+clip_text = true
+script = ExtResource("1_et6e0")
+
+[node name="+icon" type="Label" parent="Fire/Fire_Upvote"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 93.0
+theme = SubResource("Theme_4t2se")
+text = "+"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Fire/Fire_Upvote"]
+layout_mode = 0
+offset_left = -35.0
+offset_top = 65.0
+offset_right = 116.0
+offset_bottom = 126.0
+theme = SubResource("Theme_3nabi")
+text = "fire"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fire_Downvote" type="Button" parent="Fire"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 211.0
+offset_right = 200.0
+offset_bottom = 278.0
+rotation = 3.14159
+pivot_offset = Vector2(40, 33.5)
+theme = SubResource("Theme_dl2px")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+clip_text = true
+script = ExtResource("1_et6e0")
+
+[node name="-icon" type="Label" parent="Fire/Fire_Downvote"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 93.0
+theme = SubResource("Theme_4t2se")
+text = "-
+"
+horizontal_alignment = 1
+
+[node name="VoteValue" type="Label" parent="Fire"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 53.0
+offset_right = 263.0
+offset_bottom = 102.0
+theme = SubResource("Theme_lwa5q")
+
+[node name="Metal" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_right = 961.0
+offset_bottom = 1080.0
+texture = ExtResource("3_3agri")
+
+[node name="Metal_Upvote" type="Button" parent="Metal"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 83.0
+offset_right = 200.0
+offset_bottom = 150.0
+theme = SubResource("Theme_wxinb")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+clip_text = true
+script = ExtResource("1_et6e0")
+
+[node name="+icon" type="Label" parent="Metal/Metal_Upvote"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 93.0
+theme = SubResource("Theme_4t2se")
+text = "+"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Metal/Metal_Upvote"]
+layout_mode = 0
+offset_left = -78.0
+offset_top = 65.0
+offset_right = 158.0
+offset_bottom = 126.0
+theme = SubResource("Theme_aujmk")
+text = "Metal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Metal_Downvote" type="Button" parent="Metal"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 211.0
+offset_right = 200.0
+offset_bottom = 278.0
+rotation = 3.14159
+pivot_offset = Vector2(40, 33.5)
+theme = SubResource("Theme_wxinb")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+clip_text = true
+script = ExtResource("1_et6e0")
+
+[node name="-icon" type="Label" parent="Metal/Metal_Downvote"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 93.0
+theme = SubResource("Theme_4t2se")
+text = "-
+"
+horizontal_alignment = 1
+
+[node name="VoteValue" type="Label" parent="Metal"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 53.0
+offset_right = 260.0
+offset_bottom = 102.0
+theme = SubResource("Theme_go8r8")
+
+[node name="Water" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_right = 1281.0
+offset_bottom = 1080.0
+texture = ExtResource("4_w5mo1")
+
+[node name="Water_Upvote" type="Button" parent="Water"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 83.0
+offset_right = 200.0
+offset_bottom = 150.0
+theme = SubResource("Theme_4gcpt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+clip_text = true
+script = ExtResource("1_et6e0")
+
+[node name="+icon" type="Label" parent="Water/Water_Upvote"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 93.0
+theme = SubResource("Theme_4t2se")
+text = "+"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Water/Water_Upvote"]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 65.0
+offset_right = 161.0
+offset_bottom = 126.0
+theme = SubResource("Theme_go6e4")
+text = "Water"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Water_Downvote" type="Button" parent="Water"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 211.0
+offset_right = 200.0
+offset_bottom = 278.0
+rotation = 3.14159
+pivot_offset = Vector2(40, 33.5)
+theme = SubResource("Theme_4gcpt")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+clip_text = true
+script = ExtResource("1_et6e0")
+
+[node name="-icon" type="Label" parent="Water/Water_Downvote"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 93.0
+theme = SubResource("Theme_4t2se")
+text = "-
+"
+horizontal_alignment = 1
+
+[node name="VoteValue" type="Label" parent="Water"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 53.0
+offset_right = 260.0
+offset_bottom = 76.0
+theme = SubResource("Theme_pgay4")
+
+[node name="Earth" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1280.0
+offset_right = 1601.0
+offset_bottom = 1080.0
+texture = ExtResource("5_b1mmn")
+
+[node name="Earth_Upvote" type="Button" parent="Earth"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 83.0
+offset_right = 200.0
+offset_bottom = 150.0
+theme = SubResource("Theme_3n20c")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+clip_text = true
+script = ExtResource("1_et6e0")
+
+[node name="+icon" type="Label" parent="Earth/Earth_Upvote"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 93.0
+theme = SubResource("Theme_4t2se")
+text = "+"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Earth/Earth_Upvote"]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 65.0
+offset_right = 161.0
+offset_bottom = 126.0
+theme = SubResource("Theme_tkstj")
+text = "Earth"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Earth_Downvote" type="Button" parent="Earth"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 211.0
+offset_right = 200.0
+offset_bottom = 278.0
+rotation = 3.14159
+pivot_offset = Vector2(40, 33.5)
+theme = SubResource("Theme_3n20c")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+clip_text = true
+script = ExtResource("1_et6e0")
+
+[node name="-icon" type="Label" parent="Earth/Earth_Downvote"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 93.0
+theme = SubResource("Theme_4t2se")
+text = "-
+"
+horizontal_alignment = 1
+
+[node name="VoteValue" type="Label" parent="Earth"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 53.0
+offset_right = 260.0
+offset_bottom = 76.0
+theme = SubResource("Theme_vxdml")
+
+[node name="Init" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1600.0
+offset_right = 1921.0
+offset_bottom = 1080.0
+texture = ExtResource("6_akuga")
+
+[node name="Init_Upvote" type="Button" parent="Init"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 83.0
+offset_right = 200.0
+offset_bottom = 150.0
+theme = SubResource("Theme_w0tlw")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+clip_text = true
+script = ExtResource("1_et6e0")
+
+[node name="+icon" type="Label" parent="Init/Init_Upvote"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 93.0
+theme = SubResource("Theme_4t2se")
+text = "+"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Init/Init_Upvote"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 65.0
+offset_right = 102.0
+offset_bottom = 126.0
+theme = SubResource("Theme_wgx0o")
+text = "Init"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Init_Downvote" type="Button" parent="Init"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 211.0
+offset_right = 200.0
+offset_bottom = 278.0
+rotation = 3.14159
+pivot_offset = Vector2(40, 33.5)
+theme = SubResource("Theme_w0tlw")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+clip_text = true
+script = ExtResource("1_et6e0")
+
+[node name="-icon" type="Label" parent="Init/Init_Downvote"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 93.0
+theme = SubResource("Theme_4t2se")
+text = "-
+"
+horizontal_alignment = 1
+
+[node name="VoteValue" type="Label" parent="Init"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 53.0
+offset_right = 260.0
+offset_bottom = 76.0
+theme = SubResource("Theme_2kfs6")
+
+[node name="Confirm_Vote" type="Button" parent="."]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 760.0
+offset_right = 1330.0
+offset_bottom = 913.0
+theme = SubResource("Theme_tjort")
+text = "confirm"
+script = ExtResource("1_et6e0")
+
+[node name="Remaining_Votes" type="Label" parent="Confirm_Vote"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 189.0
+offset_right = 664.0
+offset_bottom = 238.0
+theme = SubResource("Theme_7gem7")
+text = "3 votes remaining"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_et6e0")

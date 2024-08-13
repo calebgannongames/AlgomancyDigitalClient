@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1hk0qcx31l73"]
+
+[ext_resource type="Script" path="res://Scripts/Title Screen.gd" id="1_foga6"]
+[ext_resource type="Texture2D" uid="uid://eon1wfexn4xf" path="res://Images/Title_Background.png" id="2_sntat"]
+[ext_resource type="FontFile" uid="uid://bkj27redhqxmj" path="res://Fonts/ethnocentric_rg.otf" id="3_tuk4b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dw04k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjieq"]
+bg_color = Color(0.84128, 0.4512, 0.96, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adkbh"]
+bg_color = Color(0.756863, 0.407843, 0.764706, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sp8x0"]
+bg_color = Color(0.666013, 0.3572, 0.76, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_3auf0"]
+default_font = ExtResource("3_tuk4b")
+default_font_size = 100
+Button/styles/focus = SubResource("StyleBoxEmpty_dw04k")
+Button/styles/hover = SubResource("StyleBoxFlat_wjieq")
+Button/styles/normal = SubResource("StyleBoxFlat_adkbh")
+Button/styles/pressed = SubResource("StyleBoxFlat_sp8x0")
+
+[sub_resource type="Theme" id="Theme_umvqt"]
+Label/colors/font_color = Color(0.838989, 0.585841, 0.915626, 1)
+Label/font_sizes/font_size = 100
+Label/fonts/font = ExtResource("3_tuk4b")
+
+[node name="Title Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_foga6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_sntat")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 705.0
+offset_top = 764.0
+offset_right = 1215.0
+offset_bottom = 904.0
+theme = SubResource("Theme_3auf0")
+text = "play"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 137.0
+offset_right = 1420.0
+offset_bottom = 258.0
+theme = SubResource("Theme_umvqt")
+text = "algomancy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

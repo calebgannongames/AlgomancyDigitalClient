@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://jb3wto4ar06b"
+path="res://.godot/imported/card_cut_edge.obj-f50c46f928575fe8854adb4c4796df75.mesh"
+
+[deps]
+
+files=["res://.godot/imported/card_cut_edge.obj-f50c46f928575fe8854adb4c4796df75.mesh"]
+
+source_file="res://card_cut_edge.obj"
+dest_files=["res://.godot/imported/card_cut_edge.obj-f50c46f928575fe8854adb4c4796df75.mesh", "res://.godot/imported/card_cut_edge.obj-f50c46f928575fe8854adb4c4796df75.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,74 @@
+[gd_resource type="Resource" load_steps=13 format=3 uid="uid://b07cblmafgbo8"]
+
+[ext_resource type="Script" path="res://CardResource.gd" id="2_vgt5g"]
+[ext_resource type="Texture2D" uid="uid://cwk16jmf1eji6" path="res://Images/dork.png" id="4_spjvk"]
+[ext_resource type="Script" path="res://Deck.gd" id="4_wh8qs"]
+[ext_resource type="Texture2D" uid="uid://dnc64wbh1cpy8" path="res://Images/cres5.png" id="5_amsub"]
+[ext_resource type="Texture2D" uid="uid://cwha4tgmankrk" path="res://Images/Megadeath.jpg" id="6_ngh2a"]
+
+[sub_resource type="Resource" id="Resource_48in1"]
+script = ExtResource("2_vgt5g")
+card_name = "The Bonesculptor"
+card_power = 0
+card_toughness = 3
+berry_cost = 0
+stomp = false
+card_art = ExtResource("5_amsub")
+
+[sub_resource type="Resource" id="Resource_25x4g"]
+script = ExtResource("2_vgt5g")
+card_name = "The Bonesculptor"
+card_power = 0
+card_toughness = 3
+berry_cost = 0
+stomp = false
+card_art = ExtResource("5_amsub")
+
+[sub_resource type="Resource" id="Resource_drjtk"]
+script = ExtResource("2_vgt5g")
+card_name = "Megadeath"
+card_power = 1
+card_toughness = 1
+berry_cost = 0
+stomp = true
+card_art = ExtResource("6_ngh2a")
+
+[sub_resource type="Resource" id="Resource_yptwc"]
+script = ExtResource("2_vgt5g")
+card_name = "Megadeath"
+card_power = 1
+card_toughness = 1
+berry_cost = 0
+stomp = true
+card_art = ExtResource("6_ngh2a")
+
+[sub_resource type="Resource" id="Resource_xkepm"]
+script = ExtResource("2_vgt5g")
+card_name = "Doob"
+card_power = 1
+card_toughness = 3
+berry_cost = 1
+stomp = true
+card_art = ExtResource("4_spjvk")
+
+[sub_resource type="Resource" id="Resource_7dpvt"]
+script = ExtResource("2_vgt5g")
+card_name = "The Bonesculptor"
+card_power = 1
+card_toughness = 2
+berry_cost = 2
+stomp = false
+card_art = ExtResource("5_amsub")
+
+[sub_resource type="Resource" id="Resource_6hrii"]
+script = ExtResource("2_vgt5g")
+card_name = "Megadeath"
+card_power = 1
+card_toughness = 1
+berry_cost = 0
+stomp = false
+card_art = ExtResource("6_ngh2a")
+
+[resource]
+script = ExtResource("4_wh8qs")
+card_list = Array[Resource]([SubResource("Resource_48in1"), SubResource("Resource_25x4g"), SubResource("Resource_drjtk"), SubResource("Resource_yptwc"), SubResource("Resource_xkepm"), SubResource("Resource_7dpvt"), SubResource("Resource_6hrii")])

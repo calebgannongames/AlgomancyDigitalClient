@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://sqa38x22yenw"]
+
+[ext_resource type="Script" path="res://Scenes/right_click_menu.gd" id="1_vwyw8"]
+
+[node name="RightClickMenu" type="Control"]
+process_priority = 1
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_vwyw8")
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+handle_input_locally = false
+mouse_passthrough = true
+allow_search = false
+
+[connection signal="id_pressed" from="PopupMenu" to="." method="_on_popup_menu_id_pressed"]

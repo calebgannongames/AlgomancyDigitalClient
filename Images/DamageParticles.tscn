@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://y281jd118xdd"]
+
+[ext_resource type="Texture2D" uid="uid://by5gwlcdbdjdx" path="res://Images/stun.png" id="1_27mel"]
+
+[sub_resource type="Gradient" id="Gradient_721o5"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8g8sa"]
+gradient = SubResource("Gradient_721o5")
+
+[sub_resource type="Curve" id="Curve_hrahb"]
+_data = [Vector2(0, 0), 0.0, 0.067452, 0, 0, Vector2(0.193493, 1), -3.55622, -3.55622, 0, 0, Vector2(1, 0), -0.089936, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_53mho"]
+curve = SubResource("Curve_hrahb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticlesMaterial_omg4j"]
+particle_flag_rotate_y = true
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, 0, 0)
+angle_min = -50.0
+angle_max = 50.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_53mho")
+color_ramp = SubResource("GradientTexture1D_8g8sa")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jel51"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_27mel")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 5.0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="QuadMesh_bb5e6"]
+material = SubResource("StandardMaterial3D_jel51")
+size = Vector2(1, 2)
+center_offset = Vector3(0, 1, 0)
+orientation = 2
+
+[node name="DamageParticles" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+emitting = false
+amount = 5
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticlesMaterial_omg4j")
+draw_pass_1 = SubResource("QuadMesh_bb5e6")

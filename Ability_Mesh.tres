@@ -1,0 +1,10 @@
+[gd_resource type="QuadMesh" load_steps=2 format=3 uid="uid://smx12g5ypkm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4m2r"]
+render_priority = -1
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.858824)
+
+[resource]
+material = SubResource("StandardMaterial3D_k4m2r")
+size = Vector2(1.05, 0.3)

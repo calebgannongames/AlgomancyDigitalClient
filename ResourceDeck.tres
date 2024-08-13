@@ -1,0 +1,88 @@
+[gd_resource type="Resource" load_steps=19 format=3 uid="uid://kui8jotngba6"]
+
+[ext_resource type="Texture2D" uid="uid://vdfbn8rer4c7" path="res://Images/Earth_Resource.jpg" id="1_5wxaa"]
+[ext_resource type="Script" path="res://CardResource.gd" id="2_pu4uj"]
+[ext_resource type="Texture2D" uid="uid://die1lgkdyrg8t" path="res://Images/Fire_Resource.jpg" id="3_14khb"]
+[ext_resource type="Texture2D" uid="uid://dc8o50fndnhku" path="res://Images/Metal_Resource.jpg" id="4_2rsra"]
+[ext_resource type="Texture2D" uid="uid://bl857cbncp6jg" path="res://Images/Water_Resource.jpg" id="5_m7vxa"]
+[ext_resource type="Script" path="res://Deck.gd" id="5_sec78"]
+[ext_resource type="Texture2D" uid="uid://6l8pkdicokes" path="res://Images/Wood_Resource.jpg" id="6_5j0cu"]
+[ext_resource type="Texture2D" uid="uid://b5fy12fmxo7cd" path="res://Images/Prismite.jpg" id="7_pscsj"]
+[ext_resource type="Texture2D" uid="uid://dheut8qvc83s4" path="res://Images/Dormant_Resource.jpg" id="8_i3koy"]
+[ext_resource type="Texture2D" uid="uid://djavoid8mr124" path="res://Images/Shard_Resource.jpg" id="9_8shxu"]
+
+[sub_resource type="Resource" id="Resource_48in1"]
+script = ExtResource("2_pu4uj")
+card_name = "Earth"
+card_power = 0
+card_toughness = 3
+berry_cost = 0
+stomp = false
+card_art = ExtResource("1_5wxaa")
+
+[sub_resource type="Resource" id="Resource_25x4g"]
+script = ExtResource("2_pu4uj")
+card_name = "Fire"
+card_power = 0
+card_toughness = 3
+berry_cost = 0
+stomp = false
+card_art = ExtResource("3_14khb")
+
+[sub_resource type="Resource" id="Resource_drjtk"]
+script = ExtResource("2_pu4uj")
+card_name = "Metal"
+card_power = 1
+card_toughness = 1
+berry_cost = 0
+stomp = false
+card_art = ExtResource("4_2rsra")
+
+[sub_resource type="Resource" id="Resource_yptwc"]
+script = ExtResource("2_pu4uj")
+card_name = "Water"
+card_power = 1
+card_toughness = 1
+berry_cost = 0
+stomp = true
+card_art = ExtResource("5_m7vxa")
+
+[sub_resource type="Resource" id="Resource_xkepm"]
+script = ExtResource("2_pu4uj")
+card_name = "Wood"
+card_power = 1
+card_toughness = 3
+berry_cost = 1
+stomp = true
+card_art = ExtResource("6_5j0cu")
+
+[sub_resource type="Resource" id="Resource_7dpvt"]
+script = ExtResource("2_pu4uj")
+card_name = "Prismite"
+card_power = 1
+card_toughness = 2
+berry_cost = 2
+stomp = false
+card_art = ExtResource("7_pscsj")
+
+[sub_resource type="Resource" id="Resource_6hrii"]
+script = ExtResource("2_pu4uj")
+card_name = "Dormant"
+card_power = 1
+card_toughness = 1
+berry_cost = 0
+stomp = false
+card_art = ExtResource("8_i3koy")
+
+[sub_resource type="Resource" id="Resource_koy18"]
+script = ExtResource("2_pu4uj")
+card_name = "Shard"
+card_power = 1
+card_toughness = 1
+berry_cost = 0
+stomp = false
+card_art = ExtResource("9_8shxu")
+
+[resource]
+script = ExtResource("5_sec78")
+card_list = Array[Resource]([SubResource("Resource_48in1"), SubResource("Resource_25x4g"), SubResource("Resource_drjtk"), SubResource("Resource_yptwc"), SubResource("Resource_xkepm"), SubResource("Resource_7dpvt"), SubResource("Resource_6hrii"), SubResource("Resource_koy18")])

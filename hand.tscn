@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://fiok0qji57gn"]
+
+[node name="Hand" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 4, 4)

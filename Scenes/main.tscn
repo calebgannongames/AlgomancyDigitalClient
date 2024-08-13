@@ -1,0 +1,913 @@
+[gd_scene load_steps=87 format=3 uid="uid://wpgwx0t6g6wo"]
+
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_0fteb"]
+[ext_resource type="Texture2D" uid="uid://eon1wfexn4xf" path="res://Images/Title_Background.png" id="1_8u12r"]
+[ext_resource type="Texture2D" uid="uid://cqxeu4sqarl" path="res://Images/wormp.png" id="1_dshv3"]
+[ext_resource type="FontFile" uid="uid://bkj27redhqxmj" path="res://Fonts/ethnocentric_rg.otf" id="3_owp27"]
+[ext_resource type="Script" path="res://Scripts/Health.gd" id="4_ccsuy"]
+[ext_resource type="Texture2D" uid="uid://cuyec7wlh15t7" path="res://Images/LifeCircle.png" id="4_giqbl"]
+[ext_resource type="PackedScene" uid="uid://fiok0qji57gn" path="res://hand.tscn" id="4_hnqj8"]
+[ext_resource type="Script" path="res://Scripts/Mana.gd" id="5_3768l"]
+[ext_resource type="Script" path="res://Scripts/hand.gd" id="5_tnmdd"]
+[ext_resource type="Script" path="res://Scenes/Next_Step.gd" id="6_hgrcw"]
+[ext_resource type="Script" path="res://Scenes/Popup_Menus.gd" id="6_uxb55"]
+[ext_resource type="Script" path="res://Scenes/Player.gd" id="6_wknor"]
+[ext_resource type="Shader" path="res://Scenes/split_Regions.gdshader" id="8_foi1j"]
+[ext_resource type="Script" path="res://Scripts/Deck.gd" id="8_v8c42"]
+[ext_resource type="Script" path="res://Scenes/Bin.gd" id="10_uicg8"]
+[ext_resource type="Script" path="res://Scenes/Divider_Bar.gd" id="11_7a1ws"]
+[ext_resource type="Script" path="res://Scenes/Floor.gd" id="11_dhbu6"]
+[ext_resource type="Script" path="res://Scenes/Draft.gd" id="13_it3tw"]
+[ext_resource type="Script" path="res://Scenes/Turn.gd" id="15_3rrpv"]
+[ext_resource type="Script" path="res://Scenes/Attack_Formation.gd" id="17_edjnm"]
+[ext_resource type="Script" path="res://Scenes/Blocking_Formation.gd" id="20_2g76t"]
+[ext_resource type="Script" path="res://Scenes/Resource_Selection.gd" id="20_d8xny"]
+[ext_resource type="Script" path="res://Scenes/Node_Manager.gd" id="20_m3jcg"]
+[ext_resource type="Script" path="res://Scenes/Resources.gd" id="21_bjos2"]
+[ext_resource type="Texture2D" uid="uid://gr2uu125akts" path="res://Black_Textbox.png" id="22_mgtqq"]
+[ext_resource type="Script" path="res://Scenes/The_Stack.gd" id="22_yl2pv"]
+[ext_resource type="Script" path="res://Scenes/Card_Inspect.gd" id="28_58jty"]
+[ext_resource type="Script" path="res://Scenes/Opponent.gd" id="28_c6p4n"]
+[ext_resource type="Script" path="res://Scenes/Opponent_Blocking_Formation.gd" id="29_a6aep"]
+[ext_resource type="Script" path="res://Scenes/In_Play_Not_Formation.gd" id="31_l0il2"]
+[ext_resource type="Script" path="res://Scenes/Attacking_Formation.gd" id="31_sseuq"]
+[ext_resource type="Script" path="res://Scenes/Zone_Manager.gd" id="32_vwtn7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ncapk"]
+texture = ExtResource("4_giqbl")
+
+[sub_resource type="Theme" id="Theme_0faab"]
+Panel/styles/panel = SubResource("StyleBoxTexture_ncapk")
+
+[sub_resource type="Theme" id="Theme_yw2w2"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 30
+Label/fonts/font = ExtResource("3_owp27")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qtyi"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4hvv"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_ilhe1"]
+Label/styles/normal = SubResource("StyleBoxFlat_8qtyi")
+Panel/styles/panel = SubResource("StyleBoxFlat_t4hvv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq7b6"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xi3mi"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_jgri6"]
+Label/styles/normal = SubResource("StyleBoxFlat_wq7b6")
+Panel/styles/panel = SubResource("StyleBoxFlat_xi3mi")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvtnv"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.756863, 0.407843, 0.858824, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_5ysl5"]
+Panel/styles/panel = SubResource("StyleBoxFlat_dvtnv")
+
+[sub_resource type="Theme" id="Theme_vbfhs"]
+Label/colors/font_color = Color(0.756863, 0.407843, 0.858824, 1)
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("3_owp27")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur8qp"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.756863, 0.407843, 0.858824, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_y3bq0"]
+Panel/styles/panel = SubResource("StyleBoxFlat_ur8qp")
+
+[sub_resource type="Theme" id="Theme_kpd04"]
+Label/colors/font_color = Color(0.756863, 0.407843, 0.858824, 1)
+Label/font_sizes/font_size = 23
+Label/fonts/font = ExtResource("3_owp27")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1c6o"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xdwq3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7wqm"]
+bg_color = Color(0.84128, 0.4512, 0.96, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dn45s"]
+bg_color = Color(0.756863, 0.407843, 0.858824, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r854f"]
+bg_color = Color(0.666013, 0.3572, 0.76, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_um76b"]
+Button/fonts/font = ExtResource("3_owp27")
+Button/styles/disabled = SubResource("StyleBoxFlat_j1c6o")
+Button/styles/focus = SubResource("StyleBoxEmpty_xdwq3")
+Button/styles/hover = SubResource("StyleBoxFlat_g7wqm")
+Button/styles/normal = SubResource("StyleBoxFlat_dn45s")
+Button/styles/pressed = SubResource("StyleBoxFlat_r854f")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4h0pb"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_255oy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uat60"]
+bg_color = Color(0.99, 0.32967, 0.3069, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqis6"]
+bg_color = Color(0.921569, 0.305882, 0.282353, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uh0ax"]
+bg_color = Color(0.82, 0.27306, 0.2542, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_j4cxi"]
+Button/fonts/font = ExtResource("3_owp27")
+Button/styles/disabled = SubResource("StyleBoxFlat_4h0pb")
+Button/styles/focus = SubResource("StyleBoxEmpty_255oy")
+Button/styles/hover = SubResource("StyleBoxFlat_uat60")
+Button/styles/normal = SubResource("StyleBoxFlat_yqis6")
+Button/styles/pressed = SubResource("StyleBoxFlat_uh0ax")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qpgpx"]
+render_priority = 0
+shader = ExtResource("8_foi1j")
+shader_parameter/divider_position = Vector2(0.5, 0.45)
+shader_parameter/divider_direction = Vector2(0.984, -0.173)
+shader_parameter/player_texture = ExtResource("1_8u12r")
+shader_parameter/opponent_texture = ExtResource("1_dshv3")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f6865"]
+material = SubResource("ShaderMaterial_qpgpx")
+size = Vector2(50, 24)
+center_offset = Vector3(2.08165e-12, 2.08165e-12, -3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecg3h"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n4jst"]
+material = SubResource("StandardMaterial3D_ecg3h")
+size = Vector3(50, 0.001, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cmoc5"]
+size = Vector3(50, 0.01, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxgku"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.937255)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_40260"]
+material = SubResource("StandardMaterial3D_vxgku")
+size = Vector2(40, 20)
+center_offset = Vector3(2.08165e-12, 2, 2.08165e-12)
+
+[sub_resource type="Curve" id="Curve_8nwk1"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 2.06174, 0, 0, Vector2(0.989051, 1), 1.89113, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_1xcbq"]
+min_value = -1.0
+max_value = 2.13163e-14
+_data = [Vector2(0, -1), 0.0, 2.09585, 0, 0, Vector2(0.136015, -0.707025), 0.96765, 0.96765, 0, 0, Vector2(0.5, -0.502914), 0.0, 0.0, 0, 0, Vector2(0.8659, -0.702816), -0.990726, -0.990726, 0, 0, Vector2(1, -1), -2.54215, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_uaqpu"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_0le1j"]
+max_value = 3.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.198294, 0.501804), 3.22185, 3.22185, 0, 0, Vector2(0.319829, 0.973295), 4.42953, 4.42953, 0, 0, Vector2(0.511727, 1.69812), 2.22144, 2.22144, 0, 0, Vector2(1, 3), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_gtgaj"]
+min_value = -1.0
+_data = [Vector2(0.00574712, 0.978957), 0.0, -1.96025, 0, 0, Vector2(1, -1), -1.44885, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_k26mn"]
+_data = [Vector2(0, 1), 0.0, -0.0319933, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_rp3kx"]
+_data = [Vector2(0, 0), 0.0, 0.764946, 0, 0, Vector2(1, 0.49536), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sa7e"]
+size = Vector2(1920, 290)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxfxb"]
+size = Vector2(1920, 270)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eiwlb"]
+size = Vector2(1920, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc206"]
+size = Vector2(1920, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q322l"]
+size = Vector2(1920, 290)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25148"]
+size = Vector2(1920, 817)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82lj8"]
+size = Vector2(1920, 817)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egvaj"]
+size = Vector2(291, 259)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7afxa"]
+size = Vector2(1623, 190)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yc60n"]
+size = Vector2(313.5, 878)
+
+[sub_resource type="Curve" id="Curve_35mco"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 1.96062, 0, 0, Vector2(1, 1), 2.19085, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_h2ff8"]
+_data = [Vector2(0, 1), 0.0, -1.51844, 0, 0, Vector2(0.502941, 0.495493), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.39278, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_w8hat"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.994118, -1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_0fteb")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, -6.92275e-16, 6.05661e-17, 6.05662e-17, 0.173648, 0.984808, -6.92275e-16, -0.984808, 0.173648, 2.08165e-12, 10, 2.08165e-12)
+size = 20.214
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+
+[node name="Life" type="Control" parent="UI/Control"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player_Life" type="Panel" parent="UI/Control/Life"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 500.0
+offset_right = 80.0
+offset_bottom = 600.0
+grow_horizontal = 2
+theme = SubResource("Theme_0faab")
+
+[node name="Life_Total" type="Label" parent="UI/Control/Life/Player_Life"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 20.0
+offset_right = 90.0
+offset_bottom = 75.0
+theme = SubResource("Theme_yw2w2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Opponent_Life" type="Panel" parent="UI/Control/Life"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 280.0
+offset_right = 60.0
+offset_bottom = 380.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_0faab")
+
+[node name="Life_Total" type="Label" parent="UI/Control/Life/Opponent_Life"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 20.0
+offset_right = 90.0
+offset_bottom = 75.0
+theme = SubResource("Theme_yw2w2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mana" type="Control" parent="UI/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_3768l")
+affinity_font = ExtResource("3_owp27")
+
+[node name="Affinity" type="Control" parent="UI/Control/Mana"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player_Affinity_Box" type="Panel" parent="UI/Control/Mana/Affinity"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 824.0
+offset_right = 286.0
+offset_bottom = 858.0
+theme = SubResource("Theme_ilhe1")
+
+[node name="Player_Affinity_Values" type="Panel" parent="UI/Control/Mana/Affinity"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 858.0
+offset_right = 286.0
+offset_bottom = 892.0
+theme = SubResource("Theme_jgri6")
+
+[node name="Opponent_Affinity_Box" type="Panel" parent="UI/Control/Mana/Affinity"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 115.0
+offset_right = 286.0
+offset_bottom = 149.0
+theme = SubResource("Theme_ilhe1")
+
+[node name="Opponent_Affinity_Values" type="Panel" parent="UI/Control/Mana/Affinity"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 149.0
+offset_right = 286.0
+offset_bottom = 183.0
+theme = SubResource("Theme_jgri6")
+
+[node name="Player_Mana_Box" type="Panel" parent="UI/Control/Mana"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 821.0
+offset_right = 211.0
+offset_bottom = 896.0
+theme = SubResource("Theme_5ysl5")
+
+[node name="Mana_Count" type="Label" parent="UI/Control/Mana/Player_Mana_Box"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 172.0
+offset_bottom = 66.0
+theme = SubResource("Theme_vbfhs")
+text = "0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player_Dormant_Box" type="Panel" parent="UI/Control/Mana/Player_Mana_Box"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 62.0
+offset_right = 180.0
+offset_bottom = 98.0
+theme = SubResource("Theme_y3bq0")
+
+[node name="Dormant_Count" type="Label" parent="UI/Control/Mana/Player_Mana_Box/Player_Dormant_Box"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 48.0
+offset_bottom = 32.0
+theme = SubResource("Theme_kpd04")
+text = "+2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Opponent_Mana_Box" type="Panel" parent="UI/Control/Mana"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 112.0
+offset_right = 211.0
+offset_bottom = 187.0
+theme = SubResource("Theme_5ysl5")
+
+[node name="Mana_Count" type="Label" parent="UI/Control/Mana/Opponent_Mana_Box"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 172.0
+offset_bottom = 66.0
+theme = SubResource("Theme_vbfhs")
+text = "0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Opponent_Dormant_Box" type="Panel" parent="UI/Control/Mana/Opponent_Mana_Box"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 62.0
+offset_right = 180.0
+offset_bottom = 98.0
+theme = SubResource("Theme_y3bq0")
+
+[node name="Opponent_Dormant_Count" type="Label" parent="UI/Control/Mana/Opponent_Mana_Box/Opponent_Dormant_Box"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 48.0
+offset_bottom = 32.0
+theme = SubResource("Theme_kpd04")
+text = "+2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Next_Step" type="Button" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -238.0
+offset_top = -85.0
+offset_right = -38.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 1
+theme = SubResource("Theme_um76b")
+action_mode = 0
+text = "Next Step"
+script = ExtResource("6_hgrcw")
+
+[node name="Attack_All" type="Button" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -238.0
+offset_top = -185.0
+offset_right = -38.0
+offset_bottom = -135.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_j4cxi")
+text = "Attack with All"
+script = ExtResource("6_hgrcw")
+
+[node name="Popup_Menus" type="Control" parent="UI/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+script = ExtResource("6_uxb55")
+
+[node name="Player" type="Node3D" parent="."]
+script = ExtResource("6_wknor")
+
+[node name="Floor" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("PlaneMesh_f6865")
+skeleton = NodePath("../..")
+script = ExtResource("11_dhbu6")
+
+[node name="Divider_Bar" type="MeshInstance3D" parent="Player/Floor"]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 0.001, -4)
+mesh = SubResource("BoxMesh_n4jst")
+script = ExtResource("11_7a1ws")
+
+[node name="Area3D" type="Area3D" parent="Player/Floor/Divider_Bar"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Floor/Divider_Bar/Area3D"]
+transform = Transform3D(1, 0, 1.67037e-22, 0, 1, 0, 1.67038e-22, 0, 1, 0, 6.86517e-15, 0)
+shape = SubResource("BoxShape3D_cmoc5")
+
+[node name="Deck" type="Node3D" parent="Player"]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, -1.5246e-23, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -15, 2.08165e-12, 4)
+script = ExtResource("8_v8c42")
+deck_path = "res://Card_Information/Wood.json"
+
+[node name="Hider" type="Node3D" parent="Player"]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Hider"]
+mesh = SubResource("PlaneMesh_40260")
+
+[node name="Draft" type="Node3D" parent="Player"]
+script = ExtResource("13_it3tw")
+deck_path = NodePath("../Deck")
+camera_path = NodePath("../../Camera3D")
+
+[node name="Bin" type="Node3D" parent="Player"]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, -10.5, 0.2, 4)
+script = ExtResource("10_uicg8")
+
+[node name="Hand" parent="Player" instance=ExtResource("4_hnqj8")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 5.5, 2.2)
+script = ExtResource("5_tnmdd")
+deck_path = NodePath("../Deck")
+camera_path = NodePath("../../Camera3D")
+spread_curve = SubResource("Curve_8nwk1")
+height_curve = SubResource("Curve_1xcbq")
+rotation_curve = SubResource("Curve_uaqpu")
+width_curve = SubResource("Curve_0le1j")
+width_array = Array[float]([2.08165e-12, 2.08165e-12, 0.5, 1.0, 1.5, 2.0])
+
+[node name="Resource_Selection" type="Node3D" parent="Player"]
+script = ExtResource("20_d8xny")
+deck_path = NodePath("../Deck")
+player_path = NodePath("..")
+
+[node name="Resources" type="Node3D" parent="Player"]
+script = ExtResource("21_bjos2")
+
+[node name="Own_Region" type="Node3D" parent="Player"]
+
+[node name="In_Play_Not_Formation" type="Node3D" parent="Player/Own_Region"]
+script = ExtResource("31_l0il2")
+
+[node name="Blocking_Formation" type="Node3D" parent="Player/Own_Region"]
+script = ExtResource("20_2g76t")
+
+[node name="Enemy_Region" type="Node3D" parent="Player"]
+
+[node name="Attacking_Formation" type="Node3D" parent="Player/Enemy_Region"]
+script = ExtResource("17_edjnm")
+
+[node name="In_Play_Not_Formation" type="Node3D" parent="Player/Enemy_Region"]
+script = ExtResource("31_l0il2")
+
+[node name="The_Stack" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 6.5, -1)
+script = ExtResource("22_yl2pv")
+spread_curve = SubResource("Curve_gtgaj")
+height_curve = SubResource("Curve_k26mn")
+rotation_curve = SubResource("Curve_rp3kx")
+width_array = Array[float]([0.0, 0.0, 0.75, 1.0, 1.5, 1.75, 2.0])
+camera_path = NodePath("../../Camera3D")
+
+[node name="Life" type="Sprite3D" parent="Player"]
+transform = Transform3D(1, -6.92275e-16, 6.05662e-17, 6.05662e-17, 0.173648, 0.984808, -6.92275e-16, -0.984808, 0.173648, 0.03, 5.4, 1.35)
+pixel_size = 0.001
+texture = ExtResource("22_mgtqq")
+script = ExtResource("4_ccsuy")
+
+[node name="Life_Total" type="Label3D" parent="Player/Life"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.01, 0.02)
+pixel_size = 0.001
+text = "25"
+font = ExtResource("3_owp27")
+font_size = 170
+outline_size = 0
+
+[node name="Mana" type="Sprite3D" parent="Player"]
+transform = Transform3D(1.5, -1.03841e-15, 9.08493e-17, 9.08493e-17, 0.260472, 1.47721, -1.03841e-15, -1.47721, 0.260472, -5, 5.4, 1)
+visible = false
+pixel_size = 0.001
+texture = ExtResource("22_mgtqq")
+
+[node name="Mana_Count" type="Label3D" parent="Player/Mana"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.001, 2.08165e-12)
+pixel_size = 0.001
+text = "2/2"
+font = ExtResource("3_owp27")
+font_size = 150
+outline_size = 0
+
+[node name="Sprite3D" type="Sprite3D" parent="Player/Mana"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.13, 2.08165e-12)
+pixel_size = 0.0005
+texture = ExtResource("22_mgtqq")
+
+[node name="Dormant_Count" type="Label3D" parent="Player/Mana/Sprite3D"]
+transform = Transform3D(1, -1.50107e-23, -8.83546e-24, -2.37e-23, 1, -8.45787e-10, -1.07419e-23, -5.73738e-09, 1, 2.08165e-12, 2.08165e-12, 0.01)
+pixel_size = 0.001
+text = "+2"
+font = ExtResource("3_owp27")
+font_size = 100
+outline_size = 0
+
+[node name="Turn" type="Node3D" parent="."]
+script = ExtResource("15_3rrpv")
+
+[node name="Node_Manager" type="Node3D" parent="."]
+script = ExtResource("20_m3jcg")
+
+[node name="Card_Inspect" type="Node3D" parent="."]
+script = ExtResource("28_58jty")
+
+[node name="Title" type="Node3D" parent="."]
+
+[node name="Title" type="Label3D" parent="Title"]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 2.08165e-12, 5, -4.3)
+text = "Draft"
+font = ExtResource("3_owp27")
+font_size = 100
+outline_size = 0
+
+[node name="Description" type="Label3D" parent="Title/Title"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -0.5)
+text = "Choose Your Hand"
+font = ExtResource("3_owp27")
+font_size = 40
+
+[node name="Zone_Manager" type="Node2D" parent="."]
+script = ExtResource("32_vwtn7")
+attack_zone_path = NodePath("../Player/Enemy_Region/Attacking_Formation")
+enemy_block_zone_path = NodePath("../Opponent/Enemy_Region/Blocking_Formation")
+player_board_zone_path = NodePath("../Player/Own_Region/In_Play_Not_Formation")
+player_away_board_zone_path = NodePath("../Player/Enemy_Region/In_Play_Not_Formation")
+block_zone_path = NodePath("../Player/Own_Region/Blocking_Formation")
+enemy_attack_zone_path = NodePath("../Opponent/Own_Region/Attacking_Formation")
+enemy_board_zone_path = NodePath("../Opponent/Enemy_Region/In_Play_Not_Formation")
+enemy_away_board_zone_path = NodePath("../Opponent/Own_Region/In_Play_Not_Formation")
+play_zone_path = NodePath("../Player/Own_Region/In_Play_Not_Formation")
+bin_zone_path = NodePath("../Player/Bin")
+hand_zone_path = NodePath("../Player/Hand")
+draft_zone_path = NodePath("../Player/Draft")
+resource_selection_zone_path = NodePath("../Player/Resource_Selection")
+the_stack_zone_path = NodePath("../Player/The_Stack")
+
+[node name="Player_Attack_Formation" type="Area2D" parent="Zone_Manager"]
+position = Vector2(1920, 2.08165e-12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/Player_Attack_Formation"]
+position = Vector2(2.08165e-12, 580)
+shape = SubResource("RectangleShape2D_6sa7e")
+debug_color = Color(0.14902, 0.807843, 0.211765, 0.419608)
+
+[node name="Enemy_Block_Formation" type="Area2D" parent="Zone_Manager/Player_Attack_Formation"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/Player_Attack_Formation/Enemy_Block_Formation"]
+position = Vector2(2.08165e-12, 290)
+shape = SubResource("RectangleShape2D_gxfxb")
+debug_color = Color(0.721569, 0.392157, 0.709804, 0.419608)
+
+[node name="Enemy_Board" type="Area2D" parent="Zone_Manager/Player_Attack_Formation"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/Player_Attack_Formation/Enemy_Board"]
+position = Vector2(2.08165e-12, 80)
+shape = SubResource("RectangleShape2D_eiwlb")
+debug_color = Color(0.721569, 0.392157, 0.709804, 0.419608)
+
+[node name="Player_Away_Board" type="Area2D" parent="Zone_Manager/Player_Attack_Formation"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/Player_Attack_Formation/Player_Away_Board"]
+position = Vector2(2.08165e-12, 810)
+shape = SubResource("RectangleShape2D_jc206")
+debug_color = Color(0.780392, 0, 0.109804, 0.419608)
+
+[node name="Player_Board" type="Area2D" parent="Zone_Manager"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/Player_Board"]
+position = Vector2(2.08165e-12, 810)
+shape = SubResource("RectangleShape2D_jc206")
+debug_color = Color(0.780392, 0, 0.109804, 0.419608)
+
+[node name="Enemy_Attack_Formation" type="Area2D" parent="Zone_Manager/Player_Board"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/Player_Board/Enemy_Attack_Formation"]
+position = Vector2(2.08165e-12, 290)
+shape = SubResource("RectangleShape2D_gxfxb")
+debug_color = Color(0.721569, 0.392157, 0.709804, 0.419608)
+
+[node name="Player_Block_Formation" type="Area2D" parent="Zone_Manager/Player_Board"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/Player_Board/Player_Block_Formation"]
+position = Vector2(2.08165e-12, 580)
+shape = SubResource("RectangleShape2D_q322l")
+debug_color = Color(0.780392, 0, 0.109804, 0.419608)
+
+[node name="Enemy_Away_Board" type="Area2D" parent="Zone_Manager/Player_Board"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/Player_Board/Enemy_Away_Board"]
+position = Vector2(2.08165e-12, 80)
+shape = SubResource("RectangleShape2D_eiwlb")
+debug_color = Color(0.721569, 0.392157, 0.709804, 0.419608)
+
+[node name="Play_Zone" type="Area2D" parent="Zone_Manager"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/Play_Zone"]
+position = Vector2(959, 411.5)
+shape = SubResource("RectangleShape2D_25148")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Resource_Selection_Zone" type="Area2D" parent="Zone_Manager"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/Resource_Selection_Zone"]
+position = Vector2(959, 411.5)
+shape = SubResource("RectangleShape2D_82lj8")
+debug_color = Color(0.376471, 0.584314, 0.52549, 0.419608)
+
+[node name="Draft_Zone" type="Area2D" parent="Zone_Manager"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/Draft_Zone"]
+position = Vector2(959, 411.5)
+shape = SubResource("RectangleShape2D_25148")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Bin_Zone" type="Area2D" parent="Zone_Manager"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/Bin_Zone"]
+position = Vector2(145.5, 953.5)
+shape = SubResource("RectangleShape2D_egvaj")
+debug_color = Color(0.780392, 0.435294, 0.109804, 0.419608)
+
+[node name="Hand_Zone" type="Area2D" parent="Zone_Manager"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/Hand_Zone"]
+position = Vector2(1105, 989)
+shape = SubResource("RectangleShape2D_7afxa")
+debug_color = Color(0.635294, 0.415686, 0.843137, 0.419608)
+
+[node name="The_Stack_Zone" type="Area2D" parent="Zone_Manager"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Manager/The_Stack_Zone"]
+position = Vector2(1763.75, 445)
+shape = SubResource("RectangleShape2D_yc60n")
+debug_color = Color(0.94902, 0.0627451, 0.541176, 0.419608)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 2.08165e-12, 6, -3)
+light_energy = 11.926
+shadow_enabled = true
+shadow_blur = 3.53
+omni_range = 36.444
+omni_attenuation = 1.51572
+omni_shadow_mode = 0
+
+[node name="Opponent" type="Node3D" parent="."]
+script = ExtResource("28_c6p4n")
+
+[node name="Hand" type="Node3D" parent="Opponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 5.5, 2.2)
+script = ExtResource("5_tnmdd")
+deck_path = NodePath("../../Player/Deck")
+camera_path = NodePath("../../Camera3D")
+spread_curve = SubResource("Curve_35mco")
+height_curve = SubResource("Curve_h2ff8")
+rotation_curve = SubResource("Curve_w8hat")
+width_array = Array[float]([0.0, 0.0, 0.5, 1.0, 1.5, 2.0])
+
+[node name="Bin" type="Node3D" parent="Opponent"]
+
+[node name="Enemy_Region" type="Node3D" parent="Opponent"]
+
+[node name="Blocking_Formation" type="Node3D" parent="Opponent/Enemy_Region"]
+script = ExtResource("29_a6aep")
+
+[node name="In_Play_Not_Formation" type="Node3D" parent="Opponent/Enemy_Region"]
+script = ExtResource("31_l0il2")
+
+[node name="Own_Region" type="Node3D" parent="Opponent"]
+
+[node name="Attacking_Formation" type="Node3D" parent="Opponent/Own_Region"]
+script = ExtResource("31_sseuq")
+
+[node name="In_Play_Not_Formation" type="Node3D" parent="Opponent/Own_Region"]
+script = ExtResource("31_l0il2")
+
+[connection signal="pressed" from="UI/Control/Next_Step" to="." method="_on_next_step_pressed"]
+[connection signal="pressed" from="UI/Control/Next_Step" to="UI/Control/Next_Step" method="_on_pressed"]
+[connection signal="pressed" from="UI/Control/Attack_All" to="Player" method="attack_with_all"]
+[connection signal="input_event" from="Player/Floor/Divider_Bar/Area3D" to="Player/Floor/Divider_Bar" method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Player/Floor/Divider_Bar/Area3D" to="Player/Floor/Divider_Bar" method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Player/Floor/Divider_Bar/Area3D" to="Player/Floor/Divider_Bar" method="_on_area_3d_mouse_exited"]
+[connection signal="child_entered_tree" from="Player/Deck" to="Player/Deck" method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="Player/Draft" to="Player/Draft" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Player/Draft" to="Player/Draft" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Player/Bin" to="Player/Bin" method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="Player/Hand" to="Player/Hand" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Player/Hand" to="Player/Hand" method="_on_child_exiting_tree"]
+[connection signal="child_order_changed" from="Player/Hand" to="Player/Hand" method="_on_child_order_changed"]
+[connection signal="child_entered_tree" from="Player/Resource_Selection" to="Player/Resource_Selection" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Player/Resource_Selection" to="Player/Resource_Selection" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Player/Own_Region/In_Play_Not_Formation" to="Player/Own_Region/In_Play_Not_Formation" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Player/Own_Region/In_Play_Not_Formation" to="Player/Own_Region/In_Play_Not_Formation" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Player/Own_Region/Blocking_Formation" to="Player/Own_Region/Blocking_Formation" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Player/Own_Region/Blocking_Formation" to="Player/Own_Region/Blocking_Formation" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Player/Enemy_Region/Attacking_Formation" to="Player/Enemy_Region/Attacking_Formation" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Player/Enemy_Region/Attacking_Formation" to="Player/Enemy_Region/Attacking_Formation" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Player/Enemy_Region/In_Play_Not_Formation" to="Player/Enemy_Region/In_Play_Not_Formation" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Player/Enemy_Region/In_Play_Not_Formation" to="Player/Enemy_Region/In_Play_Not_Formation" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Player/The_Stack" to="Player/The_Stack" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Player/The_Stack" to="Player/The_Stack" method="_on_child_exiting_tree"]
+[connection signal="child_order_changed" from="Player/The_Stack" to="Player/The_Stack" method="_on_child_order_changed"]
+[connection signal="child_entered_tree" from="Opponent/Hand" to="Opponent/Hand" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Opponent/Hand" to="Opponent/Hand" method="_on_child_exiting_tree"]
+[connection signal="child_order_changed" from="Opponent/Hand" to="Opponent/Hand" method="_on_child_order_changed"]
+[connection signal="child_entered_tree" from="Opponent/Enemy_Region/Blocking_Formation" to="Opponent/Enemy_Region/Blocking_Formation" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Opponent/Enemy_Region/Blocking_Formation" to="Opponent/Enemy_Region/Blocking_Formation" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Opponent/Enemy_Region/In_Play_Not_Formation" to="Opponent/Enemy_Region/In_Play_Not_Formation" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Opponent/Enemy_Region/In_Play_Not_Formation" to="Opponent/Enemy_Region/In_Play_Not_Formation" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Opponent/Own_Region/Attacking_Formation" to="Opponent/Own_Region/Attacking_Formation" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Opponent/Own_Region/Attacking_Formation" to="Opponent/Own_Region/Attacking_Formation" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Opponent/Own_Region/In_Play_Not_Formation" to="Opponent/Own_Region/In_Play_Not_Formation" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Opponent/Own_Region/In_Play_Not_Formation" to="Opponent/Own_Region/In_Play_Not_Formation" method="_on_child_exiting_tree"]
